@@ -1,0 +1,119 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+/* HEADER */
+.masthead {
+    background-size: cover;
+    min-height: 40vh;
+    position: relative;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
+}
+
+.header-title {
+    font-size: 4rem;
+}
+
+.color-ovelay {
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .2);
+}
+
+@media (max-width: 768px) {
+    .masthead {
+        min-height: 30vh;
+    }
+}
+
+/* END */
+
+body {
+    font-family: serif;
+    box-sizing: border-box;
+    background-size: cover;
+    min-height: 40vh;
+    position: relative;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .2);
+}
+
+.body-div {
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(253, 230, 115, 0.158);
+}
+
+.form {
+    position: relative;
+    margin-top: 3rem;
+}
+
+.form .fa-search {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: #9ca3af;
+}
+
+.form span {
+    position: absolute;
+    right: 17px;
+    top: 13px;
+    padding: 2px;
+    border-left: 1px solid #d1d5db;
+
+}
+
+.left-pan {
+    padding-left: 7px;
+}
+
+.left-pan i {
+    padding-left: 10px;
+}
+
+.form-input {
+    height: 55px;
+    text-indent: 33px;
+    border-radius: 10px;
+}
+
+.form-input:focus {
+    box-shadow: none;
+    border: none;
+}
+
+.meal-result {
+    align-items: center;
+    margin-top: 15rem;
+}
+
+.title-result {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: black;
+    text-shadow: 0.1em 0.1em 0.1em white,
+        0 0 1em white;
+}
+
+#meal {
+    margin-top: 10rem;
+}
+
+.btn-secondary {
+    width: 30px;
+    outline: none !important;
+    background-color: rgb(255, 162, 0) !important;
+    border-color: rgb(255, 162, 0) !important;
+}
+
+.btn-secondary:hover {
+    background-color: rgb(238, 110, 5) !important;
+    border-color: rgb(238, 110, 5) !important;
+}
