@@ -1,3 +1,7 @@
+/**
+ *  Variáveis de acesso a API externa.
+ */
+
 const baseUrl = 'https://api.spoonacular.com';
 const apiKey = 'dc82011ca20a4c4286afa195d15614f3';
 

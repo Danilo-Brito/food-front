@@ -19,6 +19,23 @@ body {
     background-color: rgba(253, 230, 115, 0.158);
 }
 
+/* NAVBAR */
+.navbar-brand {
+    margin-left: 30px;
+}
+
+.form-inline {
+    margin-right: 30px;
+}
+
+.basket-btn {
+    background-color: none;
+}
+
+.fa-solid {
+    color: white;
+}
+
 /* HEADER */
 .header {
     background-size: cover;
@@ -130,8 +147,9 @@ body {
 .card {
     align-items: center;
     margin: 20px;
+    width: 250px !important;
+    height: auto;
 }
-
 .card-body {
     width: 100%;
     background-color: rgb(250, 213, 165);
@@ -146,4 +164,44 @@ body {
 .btn-dark:hover {
     background-color: rgb(238, 110, 5) !important;
     border-color: rgb(238, 110, 5) !important;
+}
+
+/* SHOP */
+
+.table-div {
+    margin: 50px 50px 30px;
+    align-items: center;
+}
+
+.head-table th {
+    font-size: 1.5rem;
+    text-align: center;
+    color: rgb(255, 162, 0) !important;
+}
+
+td {
+    align-items: center !important;
+}
+
+.fa-solid {
+    color: black;
+}
+
+tr {
+    vertical-align: middle;
+}
+
+.row-image {
+    width: 10%;
+    height: auto;
+}
+
+.text-title,
+.text-quantity,
+.text-calories {
+    text-align: center;
+}
+
+#quantity {
+    width: 60px;
 }
