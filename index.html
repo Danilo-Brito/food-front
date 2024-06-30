@@ -23,40 +23,76 @@
 
 <body class="color-ovelay d-flex" style="background-image: url('./resources/bg.png');">
     <div class="body-div">
-        <!-- Header -->
-        <div class="masthead" style="background-image: url('./resources/header.jpg');">
+
+        <!-- HEADER-->
+        <div class="header" style="background-image: url('./resources/header.jpg');">
             <div class="color-ovelay d-flex">
                 <h1 class="header-title">Calculadora de Calorias</h1>
             </div>
         </div>
-        <!-- End -->
+        <!-- END-->
 
-        <div class="container">
+        <div class="container-search">
+            <!-- SEARCH-->
             <div class="row height d-flex justify-content-center align-items-center">
                 <div class="col-md-8">
                     <div class="form">
                         <i class="fa fa-search"></i>
-                        <input type="text" class="form-control form-input" placeholder="Buscar alimento...">
+                        <input type="text" class="form-control form-input" id="search-input"
+                            placeholder="Buscar alimento...">
+                        <button type="button" class="btn btn-dark" onclick="getSearchInput()">Buscar</button>
                     </div>
 
                 </div>
+            </div>
+            <!-- END-->
 
+            <div class="title-section">
+                <h2 id="title-result">Resultado da busca:</h2>
             </div>
 
-        </div>
-    </div>
-
-    <div class="meal-result">
-        <h2 class="title-result">Resultado da busca:</h2>
-        <div id="meal">
-            <div class="card" style="width: 15rem;">
-                <img src="resources/food.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-title">Batata Frita</h5>
-                    <h6 class="card-text">Quantidade: 10000</h6>
-                    <h6 class="card-text">Quantidade: 10000</h6>
-                    <a href="#" class="btn btn-secondary btn-sm"><i class="fa-solid fa-plus"></i></a>
-                    <a href="#" class="btn btn-secondary btn-sm"><i class="fa-solid fa-info"></i></a>
+            <div class="meal-result" id="containerResult">
+                <div class="card" style="width: 15rem;">
+                    <img src="resources/food.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Batata Frita</h5>
+                        <button href="#" class="btn btn-dark btn-sm">Informação</button>
+                    </div>
+                </div>
+                <div class="card" style="width: 15rem;">
+                    <img src="resources/food.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Batata Frita</h5>
+                        <button href="#" class="btn btn-secondary btn-sm">Informação</button>
+                    </div>
+                </div>
+                <div class="card" style="width: 15rem;">
+                    <img src="resources/food.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Batata Frita</h5>
+                        <button href="#" class="btn btn-secondary btn-sm">Informação</button>
+                    </div>
+                </div>
+                <div class="card" style="width: 15rem;">
+                    <img src="resources/food.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Batata Frita</h5>
+                        <button href="#" class="btn btn-secondary btn-sm">Informação</button>
+                    </div>
+                </div>
+                <div class="card" style="width: 15rem;">
+                    <img src="resources/food.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Batata Frita</h5>
+                        <button href="#" class="btn btn-secondary btn-sm">Informação</button>
+                    </div>
+                </div>
+                <div class="card" style="width: 15rem;">
+                    <img src="resources/food.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">Batata Frita</h5>
+                        <button href="#" class="btn btn-secondary btn-sm">Informação</button>
+                    </div>
                 </div>
             </div>
         </div>
