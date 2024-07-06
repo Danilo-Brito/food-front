@@ -1,4 +1,17 @@
 /**
+* Objeto para armazenar o response da api de busca.
+*/
+class FoodInformation {
+    constructor(id, name, image, calories) {
+        this.id = id;
+        this.name = name;
+        this.image = image;
+        this.calories = calories;
+    }
+}
+
+
+/**
  *  Variáveis de acesso a API externa.
  */
 
@@ -8,7 +21,11 @@ const apiKey = 'dc82011ca20a4c4286afa195d15614f3';
 const food = document.getElementById('food');
 const mealList = document.getElementById('meal');
 
-var foods = [];
+var foodList = [];
+
+/**
+* Verifica se foi digitado um campo no input de busca e se sim incia a requisição com o valor digitado.
+*/
 
 const getSearchInput = () => {
     let searchInput = document.getElementById('search-input').value;
@@ -20,14 +37,18 @@ const getSearchInput = () => {
     }
 }
 
+/**
+ * Requisição GET para buscar os items na api externa Spoonacular
+ * @param {String} searchInput Valor digitado.
+ */
+
 const getFood = async (searchInput) => {
     fetch(`${baseUrl}/food/ingredients/search?apiKey=${apiKey}&query=${searchInput}&number=5`, {
         method: 'get'
     })
         .then((response) => response.json())
         .then((data) => {
-            data.results.forEach(item => getFoodInfo(item))
-            // console.log('Response:', data)
+            data.results.forEach(item => getFoodInfo(item));
         })
         .catch((error) => {
             console.error('Error:', error);
@@ -35,6 +56,13 @@ const getFood = async (searchInput) => {
         });
 }
 
+/**
+* Executa a segunda na api externa a partir do ID do item buscado. Essa api é a que contém o objeto com as informações dos alimentos.
+*/
+/**
+ * Requisição GET para buscar na api externa a partir do ID do item buscado. Essa api é a que contém o objeto com as informações dos alimentos.
+ * @param {Object} data (id, name, image)
+ */
 const getFoodInfo = async (data) => {
     fetch(`${baseUrl}/food/ingredients/${data.id}/information?amount=1&apiKey=${apiKey}`, {
         method: 'get'
@@ -42,61 +70,118 @@ const getFoodInfo = async (data) => {
         .then((response) => response.json())
         .then((data) => {
             responseData = data;
-            console.log('Response:', data)
 
-            // data.forEach(item => insertIntoList(item))
+            //Criando uma lista local com os items da api para manipulações futuras.
+            foodList.push(new FoodInformation(responseData.id, responseData.name, responseData.image, responseData.nutrition.nutrients[0].amount));
+            console.log('Lista:', foodList)
             insertIntoList(data)
         })
 }
 
 
-const insertIntoList = (data) => {
-    var id = data.id;
-    var name = data.name;
-    var image = data.image;
-    var description = data.nutrition.nutrients[0].amount;
+/**
+*  Função para criar os campos dinamicamentes no HTML
+*/
 
-    // Create the main card div
+const insertIntoList = (data) => {
+    var foodId = data.id;
+    var foodName = data.name;
+    var foodImage = data.image;
+    var foodCalories = data.nutrition.nutrients[0].amount;
+
+    // Criaando a div principal
     var cardDiv = document.createElement('div');
     cardDiv.className = 'card';
     cardDiv.style.width = '18rem';
 
-    // Create the img element
+    // Criando o elemento de imagem
     var img = document.createElement('img');
-    img.src = `https://img.spoonacular.com/ingredients_250x250/${image}`;
+    img.src = `https://img.spoonacular.com/ingredients_100x100/${foodImage}`;
     img.className = 'card-img-top';
 
-    // Append the img to the card div
+    // Fazendo o append da img
     cardDiv.appendChild(img);
 
-    // Create the card body div
+    // Criando a div card
     var cardBody = document.createElement('div');
     cardBody.className = 'card-body';
 
-    // Create the card title h5
+    // Criando o card title h5
     var cardTitle = document.createElement('h5');
     cardTitle.className = 'card-title';
-    cardTitle.textContent = name;
+    cardTitle.textContent = foodName;
 
     cardBody.appendChild(cardTitle);
 
     var cardDescription = document.createElement('p');
     cardDescription.className = 'card-text';
-    cardDescription.textContent = `Calorias: ${description}`
+    cardDescription.textContent = `Calorias: ${foodCalories}`
 
     cardBody.appendChild(cardDescription);
 
-    // Create the button
+    // Criando o button Adicionar
     var button = document.createElement('button');
     button.href = '#';
     button.className = 'btn btn-dark btn-sm';
     button.textContent = 'Adicionar';
 
-    // Append the button to the card body
+
+    // Fazendo o append do buttom
     cardBody.appendChild(button);
 
-    // Append the card body to the card div
+    // Fazendo o append do cardBody no cardDiv
     cardDiv.appendChild(cardBody);
 
     document.getElementById('containerResult').appendChild(cardDiv);
+
+    // Função para o click do botão adicionar.
+    buttonClick()
+}
+
+
+/**
+*  Função para pergar o valor do item selecionado e fazer uma busca na lista local para separar o objeto que será adicionado no banco.
+*/
+const buttonClick = () => {
+    let addBtn = document.getElementsByClassName("btn btn-dark btn-sm");
+
+    let i;
+    for (i = 0; i < addBtn.length; i++) {
+        addBtn[i].onclick = function () {
+
+            let div = this.parentElement.parentElement;
+            const itemName = div.getElementsByTagName('h5')[0].innerHTML
+
+
+            let itemSelected = foodList.find(food => food.name === itemName)
+            postItem(itemSelected.name, itemSelected.image, itemSelected.calories)
+
+            alert('Item adicionado!')
+        }
+    }
+}
+
+/**
+ * Requisição POST para adicionar um alimento no banco.
+ * @param {String} name Nome do alimento.
+ * @param {String} foodImage Url da imagem
+ * @param {String} foodCalories Quantidade de calorias.
+ */
+const postItem = (foodName, foodImage, foodCalories) => {
+
+    const formData = new FormData();
+    formData.append('name', foodName);
+    formData.append('image', foodImage);
+    formData.append('calories', foodCalories);
+    formData.append('quantity', 1);
+
+    let url = 'http://127.0.0.1:5000/create';
+    fetch(url, {
+        method: "post",
+        body: formData
+    })
+        .then((response) => response.json())
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 }

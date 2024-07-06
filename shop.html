@@ -25,7 +25,7 @@
     <div class="body-div">
         <!-- NAVBAR -->
         <nav class="navbar navbar-dark bg-dark justify-content-between">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" onClick="window.location.href='index.html'">
                 <img src="./resources/lojinha.png" width="30" height="30" class="d-inline-block align-top" alt="">
                 Lojinha
             </a>
@@ -46,7 +46,7 @@
 
         <!-- Tabela com livros existentes -->
         <div class="table-div">
-            <table class="table">
+            <table class="table" id="food-table">
                 <thead>
                     <tr class="head-table">
                         <th scope="col">Remover</th>
@@ -57,18 +57,23 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <!-- <tr>
                         <th scope="row" class="text-center"><i class="fa-regular fa-circle-xmark"></i></th>
                         <td class="row-image"> <img src="resources/food.jpg" class="card-img-top"></td>
                         <td class="text-title">Batata</td>
                         <td class="text-quantity">
-                            <input type="number" id="quantity" name="quantity" min="1">
-                            <!-- <input type="submit" value="Salvar"> -->
+                            <input type="number" id="quantity" name="quantity" min="1">                        
+                            <button class="quantity-btn" role="button">Salvar</button>
                         </td>
                         <td class="text-calories">1000</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
+        </div>
+
+        <div class="total-section">
+            <h1>Total de calorias:</h1>
+            <h1 id="total_calories"></h1>
         </div>
     </div>
 

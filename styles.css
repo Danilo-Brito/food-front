@@ -33,7 +33,7 @@ body {
 }
 
 .fa-solid {
-    color: white;
+    color: white !important;
 }
 
 /* HEADER */
@@ -204,4 +204,59 @@ tr {
 
 #quantity {
     width: 60px;
+}
+
+/* .quantity-btn  {
+    margin-left: 5px;
+    border-radius: 10px;
+    position: absolute;
+    background-color: rgb(255, 162, 0) !important;
+    border-color: rgb(255, 162, 0) !important;
+}
+
+.quantity-btn :hover {
+    background-color: rgb(238, 110, 5) !important;
+    border-color: rgb(238, 110, 5) !important;
+} */
+
+/* CSS */
+.quantity-btn  {
+  background-color: rgb(255, 162, 0);
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.quantity-btn:hover,
+.quantity-btn:focus {
+  background-color: rgb(238, 110, 5);
+}
+
+.total-section{
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    display: inline-block;
 }
