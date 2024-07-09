@@ -1,5 +1,5 @@
 // Criando url base
-const baseUrl = "http://127.0.0.1:5000";
+const baseUrl = 'http://web:5000';
 
 /**
  * Requisição GET para buscar a lista de alimentos
@@ -183,7 +183,7 @@ const removeItem = async () => {
  * @param {int} item nome do livro
  */
 const deleteItem = (item) => {
-    let url = 'http://127.0.0.1:5000/delete?name=' + item;
+    let url = `${baseUrl}/delete?name=` + item;
     fetch(url, {
         method: 'delete'
     })

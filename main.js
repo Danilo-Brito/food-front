@@ -175,7 +175,7 @@ const postItem = (foodName, foodImage, foodCalories) => {
     formData.append('calories', foodCalories);
     formData.append('quantity', 1);
 
-    let url = 'http://127.0.0.1:5000/create';
+    let url = 'http://web:5000';
     fetch(url, {
         method: "post",
         body: formData
