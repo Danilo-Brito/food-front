@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="resources/book.png" alt="Logo" width="80" height="80">
+    <img src="resources/lojinha.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Calculadora de Calorias - Front</h3>
@@ -54,7 +54,7 @@ Depois execute o comando para criar a imagem
 $ docker run -p 53018:80 food-front 
 ```
 
-Uma vez executando, para acessar a API, basta abrir o [http://localhost:53018/shop.html](http://localhost:53018/shop.html) no navegador.
+Uma vez executando, para acessar a API, basta abrir o [http://localhost:53018/index.html](http://localhost:53018/index.html) no navegador.
 ---
 
 <!-- CONTACT -->
