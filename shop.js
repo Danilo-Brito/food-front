@@ -1,5 +1,5 @@
 // Criando url base
-const baseUrl = 'http://web:5000';
+const baseUrl = 'http://localhost:5001';
 
 /**
  * Requisição GET para buscar a lista de alimentos

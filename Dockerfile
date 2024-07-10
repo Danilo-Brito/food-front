@@ -1,11 +1,11 @@
-# Use a small, Alpine-based Nginx image
+# Use the official Nginx image from the Docker Hub
 FROM nginx:alpine
 
-# Remove default nginx website
-RUN rm -rf /usr/share/nginx/html/*
+# Copy your static files to the Nginx HTML directory
+COPY . /usr/share/nginx/html
 
-# Copy all static files to the appropriate directory in the container
-COPY . /usr/share/nginx/html/
-
-# Expose port 80 to allow outside access to the container
+# Expose port 80
 EXPOSE 80
+
+# Start Nginx when the container launches
+CMD ["nginx", "-g", "daemon off;"]
