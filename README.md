@@ -34,7 +34,10 @@ Nesta API você ira conseguir fazer as seguintes ações:
    ```
 2. Siga os passos para a execução da api e criação do banco de dados na doc: https://github.com/Danilo-Brito/food-api
 3. Execute o arquivo index.html no seu browser.
-
+4. Crie uma chave na https://spoonacular.com/food-api e faça a alteração no arquivo main.js
+   ```
+   const apiKey = 'YOUR_API_KEY';
+   ```
 ---
 
 ## Execução via docker

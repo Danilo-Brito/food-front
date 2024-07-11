@@ -16,7 +16,7 @@ class FoodInformation {
  */
 
 const baseUrl = 'https://api.spoonacular.com';
-const apiKey = 'dc82011ca20a4c4286afa195d15614f3';
+const apiKey = 'YOUR_API_KEY';
 
 const food = document.getElementById('food');
 const mealList = document.getElementById('meal');
